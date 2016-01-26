@@ -16,6 +16,8 @@ public class Circle extends Item{
     private int mgreen;
     private int mblue;
     public float mspeed;
+    public boolean mCollision = false; //壊れたか
+    private boolean mExist = true; //生きてるか
 
     Circle(){
         mx = 0;
@@ -37,13 +39,38 @@ public class Circle extends Item{
         mblue = ran.nextInt(256);
         mspeed = ran.nextFloat()*10;
     }
+
+    public void collision(){
+        mCollision = true;
+    }
+
+    public boolean isExist(){
+        return mExist;
+    }
+
+    public float getX(){
+        return mx;
+    }
+    public float getY(){
+        return my;
+    }
+    public float getRadius(){
+        return  mr;
+    }
+
     @Override
     public void onDraw(Canvas c,Paint p){
-        p.setColor(Color.rgb(mred,mgreen,mblue));
-        my += mspeed;
-        c.drawCircle(mx,my,mr,p);
-        if(my>1400){
-            my=0;
+        if(mExist) {
+            if(mCollision){
+               //mExist=false;
+            }
+            p.setStyle(Paint.Style.STROKE);
+            p.setColor(Color.rgb(mred, mgreen, mblue));
+            my += mspeed;
+            c.drawCircle(mx, my, mr, p);
+            if (my > 1400) {
+                my = 0;
+            }
         }
     }
 

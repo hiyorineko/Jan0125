@@ -20,7 +20,7 @@ public class User extends Item{
         Resources r = context.getResources();
         bmp = BitmapFactory.decodeResource(r, R.drawable.ziki);
         mx = 0;
-        my = 1000;
+        my = 1100;
         mr = 0;
     }
 

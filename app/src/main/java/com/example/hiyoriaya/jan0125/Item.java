@@ -8,9 +8,6 @@ import android.graphics.Paint;
  */
 public abstract class Item {
 
-    public Item(){
-
-    }
 
     public void onDraw(Canvas c,Paint p){
 
